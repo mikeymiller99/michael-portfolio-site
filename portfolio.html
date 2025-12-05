@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio – Michael Miller</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Welcome To My First Site!</h1>
+        <nav>
+            <ul class="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Dark Mode Toggle Button -->
+        <button id="theme-toggle" class="btn-outline theme-toggle">
+            🌙 Dark Mode
+        </button>
+    </header>
+
+    <main>
+        <!-- PROJECTS SECTION -->
+        <section class="projects">
+            <h2>My Projects</h2>
+
+            <div class="project-grid">
+
+                <!-- PROJECT 1 -->
+                <div class="project-card">
+                    <h3>First HTML Website</h3>
+                    <p>The very first website I built from scratch using HTML and CSS.</p>
+                    <a href="index.html" class="btn">View Home Page</a>
+                </div>
+
+                <!-- PROJECT 2 -->
+                <div class="project-card">
+                    <h3>About Page Layout</h3>
+                    <p>A clean two-column responsive layout built using Flexbox.</p>
+                    <a href="about.html" class="btn">View About Page</a>
+                </div>
+
+                <!-- PROJECT 3 -->
+                <div class="project-card">
+                    <h3>Contact Form</h3>
+                    <p>A fully styled contact form with Netlify Forms handling submissions.</p>
+                    <a href="contact.html" class="btn">View Contact Page</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- LIVE BTC PRICE SECTION -->
+        <section class="projects">
+            <h2>Live Market Prices</h2>
+
+            <div class="project-grid">
+                <!-- BITCOIN CARD ONLY -->
+                <div class="project-card">
+                    <h3>Bitcoin Price</h3>
+                    <p id="btc-price">Loading latest BTC price...</p>
+                    <small id="btc-updated">Last updated: --</small>
+                    <br><br>
+                    <button class="btn" id="btc-btn">Refresh BTC Price</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Michael Miller. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Contact – Michael's First Website</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Welcome To My First Site!</h1>
+        <nav>
+            <ul class="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Dark Mode Toggle Button -->
+        <button id="theme-toggle" class="btn-outline theme-toggle">
+            🌙 Dark Mode
+        </button>
+    </header>
+
+
+    <main>
+        <section id="contact">
+
+            <!-- SUCCESS MESSAGE (appears only when ?success=true is in the URL) -->
+            <p id="success-message" style="color: green; font-weight: bold; text-align: center;">
+                <script>
+                    if (window.location.search.includes("success=true")) {
+                        document.write("Your message has been sent! Thank you!");
+                    }
+                </script>
+            </p>
+
+            <h2>Contact Me</h2>
+            <p>Email: mikeymiller99@gmail.com</p>
+            <p>Phone: (682) 433-8237</p>
+
+            <!-- NETLIFY CONTACT FORM -->
+            <form class="contact-form"
+                  name="contact"
+                  method="POST"
+                  data-netlify="true"
+                  action="/contact.html?success=true">
+
+                <!-- REQUIRED hidden form-name field for Netlify -->
+                <input type="hidden" name="form-name" value="contact">
+
+                <!-- Optional honeypot field to reduce spam -->
+                <p style="display:none;">
+                    <label>Don’t fill this out if you're human: <input name="bot-field"></label>
+                </p>
+
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+
+            <br>
+
+            <!-- BACK HOME BUTTON -->
+            <a href="index.html" class="btn-outline">Back to Home</a>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Michael Miller. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
