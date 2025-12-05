@@ -12,8 +12,11 @@
 </head>
 
 <body>
+
+    <!-- HEADER -->
     <header>
         <h1>Welcome To My First Site!</h1>
+
         <nav>
             <ul class="navbar">
                 <li><a href="index.html">Home</a></li>
@@ -23,17 +26,18 @@
             </ul>
         </nav>
 
-        <!-- Dark Mode Toggle Button -->
         <button id="theme-toggle" class="btn-outline theme-toggle">
             🌙 Dark Mode
         </button>
     </header>
 
+
+    <!-- MAIN CONTENT -->
     <main>
         <section id="contact">
 
-            <!-- SUCCESS MESSAGE (works with ?success=true in URL) -->
-            <p id="success-message" style="color: green; font-weight: bold; text-align: center;">
+            <!-- Success Message Logic -->
+            <p id="success-message" style="color:green; font-weight:bold; text-align:center;">
                 <script>
                     if (window.location.search.includes("success=true")) {
                         document.write("Your message has been sent! Thank you!");
@@ -45,29 +49,31 @@
             <p>Email: mikeymiller99@gmail.com</p>
             <p>Phone: (682) 433-8237</p>
 
-            <!-- NETLIFY CONTACT FORM -->
-            <form class="contact-form"
-                  name="contact"
-                  method="POST"
-                  data-netlify="true"
-                  action="/contact.html?success=true">
 
-                <!-- REQUIRED hidden form-name field for Netlify -->
+            <!-- NETLIFY FORM -->
+            <form class="contact-form"
+                name="contact"
+                method="POST"
+                data-netlify="true"
+                action="/contact.html?success=true">
+
                 <input type="hidden" name="form-name" value="contact">
 
-                <!-- Honeypot field -->
+                <!-- Honeypot -->
                 <p style="display:none;">
-                    <label>Don’t fill this out if you're human: <input name="bot-field"></label>
+                    <label>Don’t fill this out if you're human:
+                        <input name="bot-field">
+                    </label>
                 </p>
 
-                <label for="name">Your Name</label>
-                <input type="text" id="name" name="name" required>
+                <label>Your Name</label>
+                <input type="text" name="name" required>
 
-                <label for="email">Your Email</label>
-                <input type="email" id="email" name="email" required>
+                <label>Your Email</label>
+                <input type="email" name="email" required>
 
-                <label for="message">Your Message</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
+                <label>Your Message</label>
+                <textarea name="message" rows="4" required></textarea>
 
                 <button type="submit" class="btn">Send Message</button>
             </form>
@@ -79,34 +85,28 @@
         </section>
     </main>
 
-    <!-- Chatbot Widget -->
+
+    <!-- CHATBOT WIDGET -->
     <div id="chat-widget" class="chat-widget">
         <div class="chat-header">
             <span>Chat with Michael's Helper</span>
             <button id="chat-close" class="chat-close-btn" type="button">✕</button>
         </div>
+
         <div id="chat-messages" class="chat-messages"></div>
+
         <form id="chat-form" class="chat-form">
-            <input
-                id="chat-input"
-                type="text"
-                placeholder="Ask me about this site..."
-                autocomplete="off"
-            >
+            <input id="chat-input" type="text" placeholder="Ask me about this site..." autocomplete="off">
             <button type="submit">Send</button>
         </form>
     </div>
 
-    <!-- Floating avatar chat toggle -->
-    <button id="chat-toggle" class="chat-toggle chat-toggle-avatar-btn" type="button">
-        <img
-            src="avatar-michael.png"
-            alt="Chat with Michael"
-            class="chat-toggle-avatar"
-        >
-        <span class="chat-toggle-badge">💬</span>
+    <!-- Floating Chat Bubble -->
+    <button id="chat-toggle" class="chat-toggle" type="button">
+        <span class="chat-toggle-icon">💬</span>
     </button>
 
+    <!-- FOOTER -->
     <footer>
         <p>&copy; 2025 Michael Miller. All rights reserved.</p>
     </footer>

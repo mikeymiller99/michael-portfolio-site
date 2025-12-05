@@ -12,8 +12,11 @@
 </head>
 
 <body>
+
+    <!-- HEADER -->
     <header>
         <h1>Welcome To My First Site!</h1>
+
         <nav>
             <ul class="navbar">
                 <li><a href="index.html">Home</a></li>
@@ -23,49 +26,49 @@
             </ul>
         </nav>
 
-        <!-- Dark Mode Toggle Button -->
         <button id="theme-toggle" class="btn-outline theme-toggle">
             🌙 Dark Mode
         </button>
     </header>
 
+
+    <!-- MAIN CONTENT -->
     <main>
+
         <!-- PROJECTS SECTION -->
         <section class="projects">
             <h2>My Projects</h2>
 
             <div class="project-grid">
 
-                <!-- PROJECT 1 -->
                 <div class="project-card">
-                    <h3>First HTML Website</h3>
-                    <p>The very first website I built from scratch using HTML and CSS.</p>
+                    <h3>Home Page</h3>
+                    <p>The landing page for my first multi-page website.</p>
                     <a href="index.html" class="btn">View Home Page</a>
                 </div>
 
-                <!-- PROJECT 2 -->
                 <div class="project-card">
-                    <h3>About Page Layout</h3>
-                    <p>A clean two-column responsive layout built using Flexbox.</p>
+                    <h3>About Page</h3>
+                    <p>A clean, responsive layout using Flexbox.</p>
                     <a href="about.html" class="btn">View About Page</a>
                 </div>
 
-                <!-- PROJECT 3 -->
                 <div class="project-card">
                     <h3>Contact Form</h3>
-                    <p>A fully styled contact form with Netlify Forms handling submissions.</p>
+                    <p>Netlify-powered form handling with success message logic.</p>
                     <a href="contact.html" class="btn">View Contact Page</a>
                 </div>
 
             </div>
         </section>
 
-        <!-- LIVE BTC PRICE SECTION -->
+
+        <!-- BTC PRICE WIDGET -->
         <section class="projects">
-            <h2>Live Market Prices</h2>
+            <h2>Live Market Data</h2>
 
             <div class="project-grid">
-                <!-- BITCOIN CARD ONLY -->
+
                 <div class="project-card">
                     <h3>Bitcoin Price</h3>
                     <p id="btc-price">Loading latest BTC price...</p>
@@ -73,38 +76,34 @@
                     <br><br>
                     <button class="btn" id="btc-btn">Refresh BTC Price</button>
                 </div>
+
             </div>
         </section>
+
     </main>
 
-    <!-- Chatbot Widget -->
+
+    <!-- CHATBOT WIDGET -->
     <div id="chat-widget" class="chat-widget">
         <div class="chat-header">
             <span>Chat with Michael's Helper</span>
             <button id="chat-close" class="chat-close-btn" type="button">✕</button>
         </div>
+
         <div id="chat-messages" class="chat-messages"></div>
+
         <form id="chat-form" class="chat-form">
-            <input
-                id="chat-input"
-                type="text"
-                placeholder="Ask me about this site..."
-                autocomplete="off"
-            >
+            <input id="chat-input" type="text" placeholder="Ask me about this site..." autocomplete="off">
             <button type="submit">Send</button>
         </form>
     </div>
 
-    <!-- Floating avatar chat toggle -->
-    <button id="chat-toggle" class="chat-toggle chat-toggle-avatar-btn" type="button">
-        <img
-            src="avatar-michael.png"
-            alt="Chat with Michael"
-            class="chat-toggle-avatar"
-        >
-        <span class="chat-toggle-badge">💬</span>
+    <!-- Floating Chat Bubble -->
+    <button id="chat-toggle" class="chat-toggle" type="button">
+        <span class="chat-toggle-icon">💬</span>
     </button>
 
+    <!-- FOOTER -->
     <footer>
         <p>&copy; 2025 Michael Miller. All rights reserved.</p>
     </footer>

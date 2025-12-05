@@ -12,8 +12,11 @@
 </head>
 
 <body>
+
+    <!-- ================= HEADER ================= -->
     <header>
         <h1>Welcome To My First Site!</h1>
+
         <nav>
             <ul class="navbar">
                 <li><a href="index.html">Home</a></li>
@@ -29,28 +32,35 @@
         </button>
     </header>
 
+
+    <!-- ================= HERO SECTION ================= -->
     <main>
-        <!-- HERO SECTION -->
+
         <section class="hero">
             <h1 id="hero-title">Welcome to My First Website</h1>
-            <p>I'm learning HTML, CSS, and JavaScript and building real multi-page websites.</p>
+            <p>I’m learning HTML, CSS, and JavaScript and building real multi-page websites from scratch.</p>
 
             <div class="hero-buttons">
                 <a href="portfolio.html" class="btn">View My Projects</a>
                 <a href="contact.html" class="btn-outline">Contact Me</a>
                 <button id="surprise-btn" class="btn-secondary" type="button">
-                    Click for a Surprise
+                    Surprise Me
                 </button>
             </div>
         </section>
 
-        <!-- ABOUT PREVIEW -->
+        <!-- ================= ABOUT PREVIEW ================= -->
         <section id="about-preview">
             <h2>About Me</h2>
-            <p>I’m a 26-year-old building a life insurance agency and learning front-end development.</p>
+            <p>
+                I’m a junior developer building my foundations in HTML, CSS, and JavaScript while
+                creating real multi-page websites and interactive front-end features. I'm always
+                learning, experimenting, and exploring new opportunities to grow in the tech world.
+            </p>
         </section>
 
-        <!-- HOBBIES -->
+
+        <!-- ================= HOBBIES SECTION ================= -->
         <section id="hobbies">
             <h3>My Hobbies</h3>
             <ul>
@@ -60,7 +70,7 @@
             </ul>
         </section>
 
-        <!-- LEARNING GOALS -->
+        <!-- ================= LEARNING GOALS ================= -->
         <section id="learn">
             <h3>Top 3 Things I Want To Learn</h3>
             <ol>
@@ -69,15 +79,19 @@
                 <li>JavaScript</li>
             </ol>
         </section>
+
     </main>
 
-    <!-- Chatbot Widget -->
+
+    <!-- ================= CHATBOT WIDGET ================= -->
     <div id="chat-widget" class="chat-widget">
         <div class="chat-header">
             <span>Chat with Michael's Helper</span>
             <button id="chat-close" class="chat-close-btn" type="button">✕</button>
         </div>
+
         <div id="chat-messages" class="chat-messages"></div>
+
         <form id="chat-form" class="chat-form">
             <input
                 id="chat-input"
@@ -89,20 +103,19 @@
         </form>
     </div>
 
-    <!-- Floating avatar chat toggle -->
-    <button id="chat-toggle" class="chat-toggle chat-toggle-avatar-btn" type="button">
-        <img
-            src="avatar-michael.png"
-            alt="Chat with Michael"
-            class="chat-toggle-avatar"
-        >
-        <span class="chat-toggle-badge">💬</span>
+    <!-- Floating fun chat bubble -->
+    <button id="chat-toggle" class="chat-toggle" type="button">
+        <span class="chat-toggle-icon">💬</span>
     </button>
 
+
+    <!-- ================= FOOTER ================= -->
     <footer>
         <p>&copy; 2025 Michael Miller. All rights reserved.</p>
     </footer>
 
+    <!-- Scripts -->
     <script src="script.js"></script>
+
 </body>
 </html>

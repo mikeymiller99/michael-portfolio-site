@@ -12,8 +12,11 @@
 </head>
 
 <body>
+
+    <!-- HEADER -->
     <header>
         <h1>Welcome To My First Site!</h1>
+
         <nav>
             <ul class="navbar">
                 <li><a href="index.html">Home</a></li>
@@ -23,59 +26,67 @@
             </ul>
         </nav>
 
-        <!-- Dark Mode Toggle Button -->
         <button id="theme-toggle" class="btn-outline theme-toggle">
             🌙 Dark Mode
         </button>
     </header>
 
+
+    <!-- MAIN CONTENT -->
     <main>
         <section id="about">
             <div class="about-flex">
-                <img src="https://picsum.photos/220" alt="Profile Image">
+                <img src="https://picsum.photos/260" alt="Profile Image">
+
                 <div class="about-text">
                     <h2>About Me</h2>
-                    <p>I am a 26-year-old building a life insurance agency and learning front-end development.</p>
-                    <p>This page is part of my first multi-page website, built with:</p>
+                    <p>
+                        I’m a junior developer focused on mastering front-end technologies such as HTML, CSS,
+                        and JavaScript. I enjoy building clean, responsive websites and experimenting with
+                        interactive features that create a great user experience.
+                    </p>
+
+                    <p>
+                        I'm actively developing my skills and looking for opportunities to collaborate,
+                        contribute to real-world projects, and continue growing as a developer.
+                    </p>
+
+                    <p>Some of the areas I’m currently exploring include:</p>
+
                     <ul>
-                        <li>Semantic HTML structure</li>
-                        <li>Responsive CSS layout using Flexbox</li>
-                        <li>A shared design system with light and dark themes</li>
-                        <li>Reusable components across all pages</li>
+                        <li>Semantic and accessible HTML structure</li>
+                        <li>Modern CSS layout and design systems</li>
+                        <li>JavaScript for interactivity and API integrations</li>
+                        <li>Dark mode theming and reusable UI components</li>
+                        <li>Building dynamic widgets like chatbots and data displays</li>
                     </ul>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Chatbot Widget -->
+
+    <!-- CHATBOT WIDGET -->
     <div id="chat-widget" class="chat-widget">
         <div class="chat-header">
             <span>Chat with Michael's Helper</span>
             <button id="chat-close" class="chat-close-btn" type="button">✕</button>
         </div>
+
         <div id="chat-messages" class="chat-messages"></div>
+
         <form id="chat-form" class="chat-form">
-            <input
-                id="chat-input"
-                type="text"
-                placeholder="Ask me about this site..."
-                autocomplete="off"
-            >
+            <input id="chat-input" type="text" placeholder="Ask me about this site..." autocomplete="off">
             <button type="submit">Send</button>
         </form>
     </div>
 
-    <!-- Floating avatar chat toggle -->
-    <button id="chat-toggle" class="chat-toggle chat-toggle-avatar-btn" type="button">
-        <img
-            src="avatar-michael.png"
-            alt="Chat with Michael"
-            class="chat-toggle-avatar"
-        >
-        <span class="chat-toggle-badge">💬</span>
+    <!-- Floating Chat Bubble -->
+    <button id="chat-toggle" class="chat-toggle" type="button">
+        <span class="chat-toggle-icon">💬</span>
     </button>
 
+    <!-- FOOTER -->
     <footer>
         <p>&copy; 2025 Michael Miller. All rights reserved.</p>
     </footer>
