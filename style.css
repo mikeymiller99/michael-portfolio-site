@@ -1,418 +1,367 @@
-/* ================================================
-   GLOBAL DESIGN SYSTEM — CSS VARIABLES
-   ================================================ */
+/* ============================================
+   GLOBAL RESET & BASE SETTINGS
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    padding: 0 1rem;
+}
+
+/* ============================================
+   COLOR SYSTEM (LIGHT & DARK)
+   ============================================ */
 :root {
-    /* COLOR PALETTE (LIGHT MODE DEFAULTS) */
-    --color-primary: #4a74d1;
-    --color-primary-dark: #365bb0;
-    --color-accent: #6a9cf5;
-    --color-bg: #f7f9fc;        /* card / section background */
-    --color-page-bg: #ffffff;   /* overall page background */
-    --color-text: #222;
-    --color-light: #ffffff;
+    --color-bg: #ffffff;
+    --color-text: #111111;
+    --color-primary: #007bff;
+    --color-accent: #f5d565;
 
-    /* SPACING SCALE */
-    --space-xs: 6px;
-    --space-sm: 12px;
-    --space-md: 20px;
-    --space-lg: 40px;
-
-    /* BORDER RADIUS */
+    --color-light: #f5f5f5;
     --radius-sm: 6px;
     --radius-md: 10px;
-    --radius-lg: 12px;
 
-    /* SHADOWS */
-    --shadow-soft: 0 2px 5px rgba(0,0,0,0.08);
-    --shadow-mid: 0 4px 12px rgba(0,0,0,0.12);
+    --shadow-soft: 0 3px 8px rgba(0,0,0,0.15);
+    --shadow-mid: 0 6px 16px rgba(0,0,0,0.18);
+    --shadow-strong: 0 10px 25px rgba(0,0,0,0.25);
 
-    /* FONT SIZES */
+    --space-sm: 8px;
+    --space-md: 18px;
+    --space-lg: 32px;
+
     --font-sm: 0.9rem;
-    --font-md: 1rem;
-    --font-lg: 1.4rem;
-    --font-xl: 2rem;
-
-    /* ANIMATION SPEED */
-    --anim-speed: 0.25s;
+    --font-md: 1.1rem;
+    --font-lg: 1.35rem;
 }
 
-/* DARK THEME OVERRIDES */
 .dark-theme {
-    --color-primary: #60a5fa;
-    --color-primary-dark: #3b82f6;
-    --color-accent: #38bdf8;
-    --color-bg: #020617;        /* card / section background (very dark) */
-    --color-page-bg: #020617;   /* page background */
-    --color-text: #e5e7eb;
-    --color-light: #0b1120;
-
-    --shadow-soft: 0 2px 8px rgba(0,0,0,0.6);
-    --shadow-mid: 0 8px 24px rgba(0,0,0,0.7);
+    --color-bg: #1a1a1a;
+    --color-text: #e9e9e9;
+    --color-primary: #61a8ff;
+    --color-light: #333333;
 }
 
-/* ================================================
-   TYPOGRAPHY SYSTEM
-   ================================================ */
-h1, h2, h3, h4 {
-    font-weight: 600;
-    line-height: 1.3;
-}
-
-p, li {
-    font-size: var(--font-md);
-    line-height: 1.6;
-    color: var(--color-text);
-}
-
-h1 {
-    font-size: 2rem;
-}
-
-h2 {
-    font-size: 1.6rem;
-}
-
-h3 {
-    font-size: 1.3rem;
-}
-
-h1, h2, h3 {
-    margin-bottom: var(--space-sm);
-}
-
-small {
-    font-size: var(--font-sm);
-    opacity: 0.8;
-}
-
-/* Desktop improved base font size */
-@media (min-width: 900px) {
-    body {
-        font-size: 18px;
-    }
-}
-
-/* ================================================
-   BASE ELEMENT STYLES
-   ================================================ */
-body {
-    font-family: 'Inter', Arial, sans-serif;
-    margin: var(--space-md);
-    line-height: 1.6;
-    color: var(--color-text);
-    background-color: var(--color-page-bg);
-}
-
-/* ================================================
-   HEADER & NAVIGATION
-   ================================================ */
+/* ============================================
+   HEADER & NAVBAR
+   ============================================ */
 header {
+    padding: 1.5rem 0;
     text-align: center;
-    padding-bottom: var(--space-md);
-    border-bottom: 2px solid #ccc;
-    position: relative;
 }
 
 .navbar {
     list-style: none;
-    padding: 0;
-    margin: var(--space-sm) 0;
-    display: flex;
-    justify-content: center;
-    gap: var(--space-md);
+    margin-top: 10px;
+}
+
+.navbar li {
+    display: inline-block;
+    margin: 0 12px;
 }
 
 .navbar a {
     text-decoration: none;
     color: var(--color-primary);
-    font-weight: bold;
-    padding: var(--space-xs) var(--space-sm);
-    transition: 0.2s ease-in-out;
+    font-weight: 600;
 }
 
-.navbar a:hover {
-    color: var(--color-primary-dark);
-}
-
-/* Dark mode toggle button */
 .theme-toggle {
-    margin-top: var(--space-sm);
-    font-size: 0.9rem;
+    margin-top: 14px;
 }
 
-/* ================================================
-   HERO SECTION
-   ================================================ */
-.hero {
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-    padding: var(--space-lg) var(--space-md);
-    background: linear-gradient(135deg, var(--color-accent), var(--color-primary));
-    color: var(--color-light);
-    border-radius: var(--radius-lg);
-    margin: var(--space-md) auto var(--space-lg) auto;
-    max-width: 900px;
-    box-shadow: var(--shadow-mid);
-}
-
-.hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: var(--space-sm);
-}
-
-.hero p {
-    font-size: 1.2rem;
-    margin-bottom: var(--space-md);
-}
-
-/* ================================================
-   BUTTONS — PRIMARY & OUTLINE
-   ================================================ */
-.btn {
-    display: inline-block;
-    padding: var(--space-sm) var(--space-md);
-    font-weight: bold;
-    text-decoration: none;
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn,
+.btn-outline,
+.btn-secondary {
+    padding: 10px 18px;
+    font-size: var(--font-sm);
     border-radius: var(--radius-sm);
-    background-color: var(--color-primary);
-    color: var(--color-light);
-    transition: background-color var(--anim-speed), transform var(--anim-speed);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
 }
 
-.btn:hover {
-    background-color: var(--color-primary-dark);
+.btn {
+    background-color: var(--color-primary);
+    color: #fff;
+    border: none;
 }
 
 .btn-outline {
-    display: inline-block;
-    padding: var(--space-sm) var(--space-md);
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: var(--radius-sm);
-    color: var(--color-primary);
     border: 2px solid var(--color-primary);
-    background-color: transparent;
-    transition: background-color var(--anim-speed), transform var(--anim-speed), color var(--anim-speed);
+    color: var(--color-primary);
+    background: transparent;
 }
 
-.btn-outline:hover {
-    background-color: var(--color-bg);
+.btn-secondary {
+    background-color: #555;
+    border: none;
+    color: white;
 }
 
-/* Button press effect */
-.btn:active,
-.btn-outline:active {
-    transform: scale(0.97);
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.hero {
+    text-align: center;
+    padding: 2.5rem 1rem;
 }
 
-/* ================================================
-   SECTION BASE STYLE
-   ================================================ */
-section {
-    max-width: 700px;
-    margin: var(--space-lg) auto;
-    padding: var(--space-md);
-    background: var(--color-bg);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-soft);
-    animation: fadeIn var(--anim-speed) ease-in;
+.hero-buttons {
+    margin-top: 1rem;
 }
 
-/* ================================================
-   ABOUT SECTION — FLEX LAYOUT
-   ================================================ */
+/* ============================================
+   ABOUT PAGE LAYOUT
+   ============================================ */
 .about-flex {
     display: flex;
-    gap: var(--space-md);
-    align-items: center;
-    justify-content: center;
+    gap: 1.2rem;
+    margin-top: 1.5rem;
     flex-wrap: wrap;
 }
 
 .about-flex img {
-    width: 200px;
-    height: 200px;
-    border-radius: var(--radius-lg);
-    object-fit: cover;
+    border-radius: 10px;
 }
 
-.about-text {
-    max-width: 400px;
+/* ============================================
+   PROJECT CARDS
+   ============================================ */
+.projects {
+    margin-top: 2rem;
+    padding-bottom: 2rem;
 }
 
-/* ================================================
-   PORTFOLIO GRID STYLES
-   ================================================ */
 .project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--space-md);
-    margin-top: var(--space-md);
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
 }
 
 .project-card {
-    background: var(--color-bg);
-    padding: var(--space-md);
+    background: var(--color-light);
+    padding: 1rem;
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-soft);
-    text-align: center;
-    transition: transform var(--anim-speed), box-shadow var(--anim-speed);
+    width: 250px;
 }
 
-.project-card h3 {
-    margin-top: 0;
+.dark-theme .project-card {
+    background: #2d2d2d;
 }
 
-.project-card p {
-    margin-bottom: var(--space-md);
-}
-
-/* Card hover lift */
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-mid);
-}
-
-/* ================================================
-   CONTACT FORM STYLING
-   ================================================ */
+/* ============================================
+   CONTACT FORM
+   ============================================ */
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: var(--space-sm);
-    max-width: 500px;
-    margin-top: var(--space-md);
-}
-
-.contact-form label {
-    font-weight: bold;
+    gap: 12px;
+    max-width: 450px;
 }
 
 .contact-form input,
 .contact-form textarea {
-    padding: var(--space-sm);
-    border-radius: var(--radius-sm);
+    padding: 10px;
     border: 1px solid #ccc;
-    font-size: var(--font-md);
-    background-color: var(--color-light);
+    border-radius: var(--radius-sm);
+    background: var(--color-light);
     color: var(--color-text);
 }
 
-.contact-form input:focus,
-.contact-form textarea:focus {
-    border-color: var(--color-primary);
-    outline: none;
-    box-shadow: 0 0 5px rgba(74, 116, 209, 0.3);
+.dark-theme .contact-form input,
+.dark-theme .contact-form textarea {
+    background: #333;
 }
 
-/* ================================================
-   RESPONSIVE DESIGN (MOBILE OPTIMIZATION)
-   ================================================ */
-@media (max-width: 600px) {
-    body {
-        margin: var(--space-sm);
-        line-height: 1.5;
-    }
+/* ============================================
+   CHATBOT WIDGET
+   ============================================ */
+.chat-widget {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 320px;
+    max-width: 90vw;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-mid);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 
-    h1 {
-        font-size: 1.8rem;
-    }
-
-    h2 {
-        font-size: 1.4rem;
-    }
-
-    h3 {
-        font-size: 1.2rem;
-    }
-
-    /* HERO RESPONSIVE STYLE */
-    .hero {
-        padding: var(--space-md);
-        border-radius: var(--radius-md);
-    }
-
-    .hero h1 {
-        font-size: 1.8rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
-
-    /* ABOUT RESPONSIVE STYLE */
-    .about-flex {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .about-flex img {
-        width: 150px;
-        height: 150px;
-        margin-bottom: var(--space-sm);
-    }
-
-    /* PORTFOLIO RESPONSIVE STYLE */
-    .project-card {
-        padding: var(--space-sm);
-    }
-
-    .project-grid {
-        gap: var(--space-sm);
-    }
-
-    /* CONTACT FORM RESPONSIVE STYLE */
-    .contact-form {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-        font-size: var(--font-sm);
-        padding: var(--space-xs);
-    }
-
-    /* SECTION SPACING */
-    section {
-        padding: var(--space-sm);
-        margin: var(--space-md) auto;
-    }
+    transform: translateY(20px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease, transform .25s ease;
+    z-index: 1000;
 }
 
-/* ================================================
-   ANIMATIONS & MICROINTERACTIONS
-   ================================================ */
-
-/* Fade-in animation for sections */
-@keyframes fadeIn {
-    from { 
-        opacity: 0; 
-        transform: translateY(10px); 
-    }
-    to { 
-        opacity: 1; 
-        transform: translateY(0); 
-    }
+.chat-widget.open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
 }
 
-/* Hero glow animation */
-.hero::after {
+.chat-header {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 12px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+}
+
+.chat-messages {
+    height: 220px;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.chat-message {
+    margin-bottom: 8px;
+    padding: 8px 12px;
+    border-radius: 12px;
+    max-width: 85%;
+}
+
+.chat-message-bot {
+    background: rgba(0, 0, 0, 0.08);
+}
+
+.chat-message-user {
+    background: var(--color-primary);
+    color: white;
+    margin-left: auto;
+}
+
+/* Chat Input */
+.chat-form {
+    display: flex;
+    padding: 10px;
+    gap: 6px;
+}
+
+.chat-form input {
+    flex: 1;
+    background: var(--color-light);
+    border: 1px solid #bbb;
+    border-radius: var(--radius-sm);
+    padding: 8px;
+}
+
+.chat-form button {
+    background: var(--color-primary);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 8px 12px;
+}
+
+/* ============================================
+   AVATAR CHAT BUTTON
+   ============================================ */
+.chat-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+
+    background: transparent;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 1001;
+    transition: transform .18s ease-out, box-shadow .18s ease-out;
+    box-shadow: var(--shadow-mid);
+}
+
+.chat-toggle:hover {
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: var(--shadow-strong);
+}
+
+.chat-toggle-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--color-primary);
+    background: white;
+}
+
+.dark-theme .chat-toggle-avatar {
+    border-color: var(--color-accent);
+}
+
+/* Badge */
+.chat-toggle-badge {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: .9rem;
+    box-shadow: var(--shadow-soft);
+    transition: transform .18s ease-out;
+}
+
+.chat-toggle:hover .chat-toggle-badge {
+    transform: scale(1.08);
+}
+
+/* ============================================
+   UNREAD CHAT PULSE RING
+   ============================================ */
+.chat-toggle::before {
     content: "";
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 60%);
-    animation: heroGlow 6s infinite ease-in-out;
-    pointer-events: none; /* allow clicks through overlay */
-    z-index: -1;          /* keep behind hero content */
+    inset: 0;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    opacity: 0;
+    transform: scale(1);
 }
 
-@keyframes heroGlow {
-    0% { transform: translate(0,0); }
-    50% { transform: translate(20px, 20px); }
-    100% { transform: translate(0,0); }
+.chat-toggle-unread::before {
+    border-color: rgba(255,255,255,.85);
+    animation: chatRing 1.6s ease-out infinite;
+}
+
+.dark-theme .chat-toggle-unread::before {
+    border-color: rgba(245,213,101,.9);
+}
+
+@keyframes chatRing {
+    0% { opacity: .9; transform: scale(1); }
+    60% { opacity: 0; transform: scale(1.55); }
+    100% { opacity: 0; transform: scale(1.55); }
 }

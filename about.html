@@ -1,50 +1,85 @@
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>About – Michael's First Website - TEST</title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    </head>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>About – Michael Miller</title>
+    <link rel="stylesheet" href="style.css">
 
-    <body>
-        <header>
-            <h1>Welcome To My First Site!</h1>
-            <nav>
-                <ul class="navbar">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="portfolio.html">Portfolio</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
+    <!-- Google Font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
 
-            <!-- Dark Mode Toggle Button -->
-            <button id="theme-toggle" class="btn-outline theme-toggle">
-                🌙 Dark Mode
-            </button>
-        </header>
+<body>
+    <header>
+        <h1>Welcome To My First Site!</h1>
+        <nav>
+            <ul class="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
 
+        <!-- Dark Mode Toggle Button -->
+        <button id="theme-toggle" class="btn-outline theme-toggle">
+            🌙 Dark Mode
+        </button>
+    </header>
 
-        <main>
-            <section id="about">
-                <div class="about-container">
-                    <img src="https://picsum.photos/150" alt="Profile Image">
-                    <div>
-                        <h2>About Me</h2>
-                        <p>I’m a Junior Developer with growing experience in JavaScript, CSS, and AI-driven automation, focused on building clean, functional, user-friendly solutions. I bring a strong background in customer operations, team leadership, and systems thinking, which helps me design tools that solve real problems. I learn fast, adapt quickly, and thrive in environments where continuous improvement and innovation matter. My goal is to contribute to a team where I can build, automate, and grow while delivering meaningful results.</p>
-                    </div>
+    <main>
+        <section id="about">
+            <div class="about-flex">
+                <img src="https://picsum.photos/220" alt="Profile Image">
+                <div class="about-text">
+                    <h2>About Me</h2>
+                    <p>I am a 26-year-old building a life insurance agency and learning front-end development.</p>
+                    <p>This page is part of my first multi-page website, built with:</p>
+                    <ul>
+                        <li>Semantic HTML structure</li>
+                        <li>Responsive CSS layout using Flexbox</li>
+                        <li>A shared design system with light and dark themes</li>
+                        <li>Reusable components across all pages</li>
+                    </ul>
                 </div>
-            </section>
-            <a href="contact.html" class="btn">Contact Me</a>
-        </main>
+            </div>
+        </section>
+    </main>
 
-        <footer>
-            <p>&copy; 2025 Michael Miller. All rights reserved.</p>
-        </footer>
+    <!-- Chatbot Widget -->
+    <div id="chat-widget" class="chat-widget">
+        <div class="chat-header">
+            <span>Chat with Michael's Helper</span>
+            <button id="chat-close" class="chat-close-btn" type="button">✕</button>
+        </div>
+        <div id="chat-messages" class="chat-messages"></div>
+        <form id="chat-form" class="chat-form">
+            <input
+                id="chat-input"
+                type="text"
+                placeholder="Ask me about this site..."
+                autocomplete="off"
+            >
+            <button type="submit">Send</button>
+        </form>
+    </div>
 
-        <script src="script.js"></script>
-    </body>
-    </html>
+    <!-- Floating avatar chat toggle -->
+    <button id="chat-toggle" class="chat-toggle chat-toggle-avatar-btn" type="button">
+        <img
+            src="avatar-michael.png"
+            alt="Chat with Michael"
+            class="chat-toggle-avatar"
+        >
+        <span class="chat-toggle-badge">💬</span>
+    </button>
+
+    <footer>
+        <p>&copy; 2025 Michael Miller. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

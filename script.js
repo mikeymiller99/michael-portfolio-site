@@ -1,143 +1,157 @@
-// Simple check to confirm JS is loaded
-console.log("Michael's JavaScript is connected ✅");
+console.log("Michael's JavaScript loaded! 🚀");
 
-// Run JS after the DOM is fully loaded
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
 
-    // ===========================================================
-    // THEME / DARK MODE TOGGLE
-    // ===========================================================
-    const themeToggleButton = document.getElementById("theme-toggle");
-    const rootElement = document.documentElement; // <html>
+    /* =======================================
+       THEME / DARK MODE
+       ======================================= */
+    const themeToggle = document.getElementById("theme-toggle");
+    const root = document.documentElement;
 
     function applyTheme(theme) {
-        if (theme === "dark") {
-            rootElement.classList.add("dark-theme");
-            if (themeToggleButton) {
-                themeToggleButton.textContent = "☀️ Light Mode";
-            }
-        } else {
-            rootElement.classList.remove("dark-theme");
-            if (themeToggleButton) {
-                themeToggleButton.textContent = "🌙 Dark Mode";
-            }
-        }
+        root.classList.toggle("dark-theme", theme === "dark");
+        themeToggle.textContent = theme === "dark" ? "☀️ Light Mode" : "🌙 Dark Mode";
     }
 
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark" || savedTheme === "light") {
-        applyTheme(savedTheme);
-    } else {
-        applyTheme("light");
-    }
+    applyTheme(localStorage.getItem("theme") || "light");
 
-    if (themeToggleButton) {
-        themeToggleButton.addEventListener("click", function () {
-            const isDark = rootElement.classList.contains("dark-theme");
-            const newTheme = isDark ? "light" : "dark";
-            applyTheme(newTheme);
-            localStorage.setItem("theme", newTheme);
-        });
-    }
+    themeToggle.addEventListener("click", () => {
+        const newTheme = root.classList.contains("dark-theme") ? "light" : "dark";
+        applyTheme(newTheme);
+        localStorage.setItem("theme", newTheme);
+    });
 
 
-    // ===========================================================
-    // HERO INTERACTIONS (HOME PAGE)
-    // ===========================================================
+    /* =======================================
+       HERO SECTION
+       ======================================= */
     const heroTitle = document.getElementById("hero-title");
-
     if (heroTitle) {
         heroTitle.textContent = "Welcome to Michael's First JavaScript-Powered Site";
     }
 
     const surpriseButton = document.getElementById("surprise-btn");
-
     if (surpriseButton) {
-        surpriseButton.addEventListener("click", function () {
-            alert("You just triggered your first JavaScript event! 🎉");
+        surpriseButton.addEventListener("click", () => {
+            alert("🔥 Surprise! You're coding like a beast!");
         });
     }
 
 
-    // ===========================================================
-    // CONTACT FORM INTERACTIONS (CONTACT PAGE)
-    // ===========================================================
+    /* =======================================
+       CONTACT FORM LOGGING
+       ======================================= */
     const contactForm = document.querySelector(".contact-form");
 
     if (contactForm) {
-        contactForm.addEventListener("submit", function (event) {
-            // Form submits normally to Netlify
-
-            const nameValue = contactForm.elements["name"]?.value || "";
-            const emailValue = contactForm.elements["email"]?.value || "";
-            const messageValue = contactForm.elements["message"]?.value || "";
-
-            console.log("Form submitted with:");
-            console.log("Name:", nameValue);
-            console.log("Email:", emailValue);
-            console.log("Message:", messageValue);
-
-            const successMessageEl = document.getElementById("success-message");
-
-            if (successMessageEl) {
-                successMessageEl.textContent =
-                    nameValue
-                        ? `Thanks, ${nameValue}! Your message is being sent...`
-                        : "Thanks! Your message is being sent...";
-            }
+        contactForm.addEventListener("submit", () => {
+            console.log("Contact form submitted.");
         });
     }
 
 
-    // ===========================================================
-    // LIVE BTC PRICE (PORTFOLIO PAGE ONLY)
-    // ===========================================================
-
-    // Helper: format USD
-    function formatUSD(value) {
-        return `$${value.toLocaleString(undefined, {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2
-        })}`;
-    }
-
-    // Helper: update timestamp text
-    function updateTimestamp(element) {
-        if (!element) return;
-        const now = new Date();
-        element.textContent = `Last updated: ${now.toLocaleTimeString()}`;
-    }
-
-    const btcPriceEl = document.getElementById("btc-price");
+    /* =======================================
+       BITCOIN LIVE PRICE (PORTFOLIO PAGE)
+       ======================================= */
+    const btcEl = document.getElementById("btc-price");
     const btcUpdatedEl = document.getElementById("btc-updated");
-    const btcButton = document.getElementById("btc-btn");
+    const btcBtn = document.getElementById("btc-btn");
 
-    async function fetchBitcoinPrice() {
-        if (!btcPriceEl) return;
+    async function getBTC() {
+        if (!btcEl) return;
+
+        btcEl.textContent = "Loading...";
+
         try {
-            btcPriceEl.textContent = "Loading latest BTC price...";
-            const response = await fetch(
+            const r = await fetch(
                 "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd"
             );
-            if (!response.ok) {
-                throw new Error("Network response was not ok");
-            }
-            const data = await response.json();
+            const data = await r.json();
             const price = data.bitcoin.usd;
-            btcPriceEl.textContent = `Bitcoin Price: ${formatUSD(price)} (USD)`;
-            updateTimestamp(btcUpdatedEl);
-        } catch (error) {
-            console.error("Error fetching BTC price:", error);
-            btcPriceEl.textContent = "Could not load BTC price. Please try again.";
+
+            btcEl.textContent = `Bitcoin Price: $${price.toLocaleString()}`;
+            btcUpdatedEl.textContent = `Last updated: ${new Date().toLocaleTimeString()}`;
+        } catch {
+            btcEl.textContent = "Error loading BTC price.";
         }
     }
 
-    if (btcPriceEl && btcButton) {
-        // Manual refresh
-        btcButton.addEventListener("click", fetchBitcoinPrice);
-        // Initial load + auto-refresh every 30 seconds
-        fetchBitcoinPrice();
-        setInterval(fetchBitcoinPrice, 30000);
+    if (btcEl) {
+        getBTC();
+        setInterval(getBTC, 30000);
+        btcBtn.addEventListener("click", getBTC);
     }
+
+
+    /* =======================================
+       CHATBOT WIDGET
+       ======================================= */
+    const chatWidget = document.getElementById("chat-widget");
+    const chatToggleBtn = document.getElementById("chat-toggle");
+    const chatCloseBtn = document.getElementById("chat-close");
+    const chatInput = document.getElementById("chat-input");
+    const chatFormEl = document.getElementById("chat-form");
+    const chatMessages = document.getElementById("chat-messages");
+
+    function setUnread(state) {
+        chatToggleBtn.classList.toggle("chat-toggle-unread", state);
+    }
+
+    function openChat() {
+        chatWidget.classList.add("open");
+        setUnread(false);
+        chatInput.focus();
+    }
+
+    function closeChat() {
+        chatWidget.classList.remove("open");
+    }
+
+    chatToggleBtn.addEventListener("click", () => {
+        chatWidget.classList.contains("open") ? closeChat() : openChat();
+    });
+
+    chatCloseBtn.addEventListener("click", closeChat);
+
+    function addMessage(text, sender = "bot") {
+        const msg = document.createElement("div");
+        msg.classList.add("chat-message");
+        msg.classList.add(sender === "user" ? "chat-message-user" : "chat-message-bot");
+        msg.textContent = text;
+        chatMessages.appendChild(msg);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // Initial greeting → unread pulse
+    addMessage("Hey! I'm your practice chatbot. Ask me about this site.");
+    setUnread(true);
+
+    chatFormEl.addEventListener("submit", e => {
+        e.preventDefault();
+
+        const text = chatInput.value.trim();
+        if (!text) return;
+
+        addMessage(text, "user");
+        chatInput.value = "";
+
+        let reply = "Great question! I'm a scripted practice bot.";
+
+        const l = text.toLowerCase();
+        if (l.includes("html")) reply = "HTML gives the structure of every webpage!";
+        else if (l.includes("css")) reply = "CSS controls layout, colors, spacing, responsiveness.";
+        else if (l.includes("javascript") || l.includes("js")) reply = "JavaScript powers interactions — including me!";
+        else if (l.includes("btc") || l.includes("bitcoin")) reply = "The BTC widget uses the CoinGecko API!";
+        else if (l.includes("dark")) reply = "Dark mode works via swapping CSS variables!";
+        else if (l.includes("contact")) reply = "Your contact page uses a Netlify form.";
+
+        setTimeout(() => {
+            addMessage(reply, "bot");
+
+            if (!chatWidget.classList.contains("open")) {
+                setUnread(true);
+            }
+        }, 300);
+    });
 
 });

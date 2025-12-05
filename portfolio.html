@@ -77,6 +77,34 @@
         </section>
     </main>
 
+    <!-- Chatbot Widget -->
+    <div id="chat-widget" class="chat-widget">
+        <div class="chat-header">
+            <span>Chat with Michael's Helper</span>
+            <button id="chat-close" class="chat-close-btn" type="button">✕</button>
+        </div>
+        <div id="chat-messages" class="chat-messages"></div>
+        <form id="chat-form" class="chat-form">
+            <input
+                id="chat-input"
+                type="text"
+                placeholder="Ask me about this site..."
+                autocomplete="off"
+            >
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <!-- Floating avatar chat toggle -->
+    <button id="chat-toggle" class="chat-toggle chat-toggle-avatar-btn" type="button">
+        <img
+            src="avatar-michael.png"
+            alt="Chat with Michael"
+            class="chat-toggle-avatar"
+        >
+        <span class="chat-toggle-badge">💬</span>
+    </button>
+
     <footer>
         <p>&copy; 2025 Michael Miller. All rights reserved.</p>
     </footer>
